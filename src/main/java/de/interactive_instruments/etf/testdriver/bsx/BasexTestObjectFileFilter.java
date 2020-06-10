@@ -25,27 +25,26 @@ import java.io.FileFilter;
 import de.interactive_instruments.io.MultiFileFilter;
 
 /**
- * A PathFilter and FileFilter implementation which accepts files with GML
- * and XML filename endings.
+ * A PathFilter and FileFilter implementation which accepts files with GML and XML filename endings.
  *
  * @author Jon Herrmann ( herrmann aT interactive-instruments doT de )
  */
 class BasexTestObjectFileFilter implements MultiFileFilter {
 
-	private final FileFilter ff;
+    private final FileFilter ff;
 
-	public BasexTestObjectFileFilter(final FileFilter ff) {
-		this.ff = ff;
-	}
+    public BasexTestObjectFileFilter(final FileFilter ff) {
+        this.ff = ff;
+    }
 
-	public BasexTestObjectFileFilter() {
-		ff = null;
-	}
+    public BasexTestObjectFileFilter() {
+        ff = null;
+    }
 
-	@Override
-	public boolean accept(final File pathname) {
-		final String p = pathname.getName().toUpperCase();
-		return '.' != p.charAt(0) && (p.endsWith(".XML") || p.endsWith(".GML")) && (ff == null || ff
-				.accept(pathname));
-	}
+    @Override
+    public boolean accept(final File pathname) {
+        final String p = pathname.getName().toUpperCase();
+        return '.' != p.charAt(0) && (p.endsWith(".XML") || p.endsWith(".GML")) && (ff == null || ff
+                .accept(pathname));
+    }
 }

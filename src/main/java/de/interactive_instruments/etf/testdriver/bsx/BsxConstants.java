@@ -21,17 +21,17 @@ package de.interactive_instruments.etf.testdriver.bsx;
 
 public final class BsxConstants {
 
-	private BsxConstants() {}
+    private BsxConstants() {}
 
-	public static final String ETS_DEF_FILE_SUFFIX = "-bsxets.xml";
+    public static final String ETS_DEF_FILE_SUFFIX = "-bsxets.xml";
 
-	public static final String BSX_ETS_FILE = "-bsxets.xq";
+    public static final String BSX_ETS_FILE = "-bsxets.xq";
 
-	public static final String PROJECT_CHECK_FILE_SUFFIX = "-bsxpc.xq";
+    public static final String PROJECT_CHECK_FILE_SUFFIX = "-bsxpc.xq";
 
-	public static final String ETF_TESTDB_PREFIX = "etf-tdb-";
+    public static final String ETF_TESTDB_PREFIX = "etf-tdb-";
 
-	public static final String PROJECT_DIR_KEY = "etf.projects.dir";
+    public static final String PROJECT_DIR_KEY = "etf.projects.dir";
 
-	public static final String DB_MAX_CHUNK_SIZE = "etf.testdrivers.bsx.db.chunk.max.size";
+    public static final String DB_MAX_CHUNK_SIZE = "etf.testdrivers.bsx.db.chunk.max.size";
 }

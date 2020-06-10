@@ -65,9 +65,9 @@ configurations {
 
 dependencies {
 
-	compileOnly group: 'de.interactive_instruments', name: 'ii-commons-util', version:'3.0.0'+project.snapshotSuffix
-	compileOnly group: 'de.interactive_instruments.etf', name: 'etf-core', version:'1.1.0'+project.snapshotSuffix
-	compileOnly group: 'de.interactive_instruments.etf', name: 'etf-spi', version:'1.0.1'+project.snapshotSuffix
+	compileOnly group: 'de.interactive_instruments', name: 'ii-commons-util', version:'3.2.0'+project.snapshotSuffix
+	compileOnly group: 'de.interactive_instruments.etf', name: 'etf-core', version:'2.0.0'+project.snapshotSuffix
+	compileOnly group: 'de.interactive_instruments.etf', name: 'etf-spi', version:'2.0.0'+project.snapshotSuffix
 	api group: 'org.basex', name: 'basex', version: basexVersion
   bsxPlugins group: 'de.interactive_instruments.etf.bsxm', name: 'etf-gmlgeox', version: "$gmlGeoXVersion"+project.snapshotSuffix
 
@@ -98,10 +98,12 @@ dependencies {
 
 	integrationTest group: 'ch.qos.logback', name: 'logback-classic', version: etf_logbackVersion
 	integrationTest group: 'junit', name: 'junit', version: etf_junitTestVersion
-	integrationTest group: 'de.interactive_instruments.etf', name: 'etf-bsxds', version: '2.0.1' + project.snapshotSuffix
-	integrationTest group: 'de.interactive_instruments.etf', name: 'etf-spi', version: '1.0.1' + project.snapshotSuffix
-	integrationTest group: 'de.interactive_instruments.etf', name: 'etf-stdtot', version: '1.0.1' + project.snapshotSuffix
+	integrationTest group: 'de.interactive_instruments.etf', name: 'etf-bsxds', version: '2.1.0' + project.snapshotSuffix
+	integrationTest group: 'de.interactive_instruments.etf', name: 'etf-core', version: '2.0.0' + project.snapshotSuffix
+	integrationTest group: 'de.interactive_instruments.etf', name: 'etf-spi', version: '2.0.0' + project.snapshotSuffix
+	integrationTest group: 'de.interactive_instruments.etf', name: 'etf-stdtot', version: '1.1.0' + project.snapshotSuffix
 	integrationTest group: 'de.interactive_instruments.etf.test', name: 'etf-unittest', version: '1.1.1' + project.snapshotSuffix
+	integrationTest group: 'de.interactive_instruments', name: 'ii-commons-util', version: '3.2.0' + project.snapshotSuffix
 }
 
 configurations {

@@ -30,26 +30,26 @@ import de.interactive_instruments.Releasable;
  */
 public interface DatabaseVisitor extends Releasable, FileVisitor<Path> {
 
-	Set<String> getSkippedFiles();
+    Set<String> getSkippedFiles();
 
-	/**
-	 * Number of databases.
-	 *
-	 * @return number of databases
-	 */
-	int getDbCount();
+    /**
+     * Number of databases.
+     *
+     * @return number of databases
+     */
+    int getDbCount();
 
-	/**
-	 * Total size of files.
-	 *
-	 * @return files size in bytes
-	 */
-	long getSize();
+    /**
+     * Total size of files.
+     *
+     * @return files size in bytes
+     */
+    long getSize();
 
-	/**
-	 * Number of files.
-	 *
-	 * @return number of files
-	 */
-	long getFileCount();
+    /**
+     * Number of files.
+     *
+     * @return number of files
+     */
+    long getFileCount();
 }

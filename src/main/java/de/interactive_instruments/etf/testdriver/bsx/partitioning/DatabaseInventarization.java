@@ -32,91 +32,91 @@ import org.basex.core.BaseXException;
  * @author Jon Herrmann ( herrmann aT interactive-instruments doT de )
  */
 public class DatabaseInventarization implements DatabaseVisitor {
-	private final long maxDbSizeSizePerChunk;
-	private long currentDbSize = 0;
-	private int currentDbIndex = 0;
-	private final Set<String> skippedFiles = new TreeSet<>();
-	private long size = 0;
-	private long fileCount = 0;
+    private final long maxDbSizeSizePerChunk;
+    private long currentDbSize = 0;
+    private int currentDbIndex = 0;
+    private final Set<String> skippedFiles = new TreeSet<>();
+    private long size = 0;
+    private long fileCount = 0;
 
-	public DatabaseInventarization(long maxDbSizeSizePerChunk) throws BaseXException {
-		currentDbIndex = 0;
-		fileCount = 0L;
-		this.maxDbSizeSizePerChunk = maxDbSizeSizePerChunk;
-	}
+    public DatabaseInventarization(long maxDbSizeSizePerChunk) throws BaseXException {
+        currentDbIndex = 0;
+        fileCount = 0L;
+        this.maxDbSizeSizePerChunk = maxDbSizeSizePerChunk;
+    }
 
-	@Override
-	public FileVisitResult visitFile(Path file, BasicFileAttributes attrs)
-			throws IOException {
-		if (Thread.currentThread().isInterrupted()) {
-			return FileVisitResult.TERMINATE;
-		}
+    @Override
+    public FileVisitResult visitFile(Path file, BasicFileAttributes attrs)
+            throws IOException {
+        if (Thread.currentThread().isInterrupted()) {
+            return FileVisitResult.TERMINATE;
+        }
 
-		synchronized (this) {
-			if (currentDbSize >= maxDbSizeSizePerChunk) {
-				currentDbIndex++;
-				currentDbSize = 0;
-			}
-			currentDbSize += attrs.size();
-		}
+        synchronized (this) {
+            if (currentDbSize >= maxDbSizeSizePerChunk) {
+                currentDbIndex++;
+                currentDbSize = 0;
+            }
+            currentDbSize += attrs.size();
+        }
 
-		size += attrs.size();
-		fileCount++;
-		return FileVisitResult.CONTINUE;
-	}
+        size += attrs.size();
+        fileCount++;
+        return FileVisitResult.CONTINUE;
+    }
 
-	@Override
-	public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs)
-			throws IOException {
-		return FileVisitResult.CONTINUE;
-	}
+    @Override
+    public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs)
+            throws IOException {
+        return FileVisitResult.CONTINUE;
+    }
 
-	@Override
-	public FileVisitResult visitFileFailed(Path file, IOException exc)
-			throws IOException {
-		skippedFiles.add(file.getFileName().toString());
-		return FileVisitResult.CONTINUE;
-	}
+    @Override
+    public FileVisitResult visitFileFailed(Path file, IOException exc)
+            throws IOException {
+        skippedFiles.add(file.getFileName().toString());
+        return FileVisitResult.CONTINUE;
+    }
 
-	@Override
-	public FileVisitResult postVisitDirectory(Path dir, IOException exc)
-			throws IOException {
-		return FileVisitResult.CONTINUE;
-	}
+    @Override
+    public FileVisitResult postVisitDirectory(Path dir, IOException exc)
+            throws IOException {
+        return FileVisitResult.CONTINUE;
+    }
 
-	/**
-	 * Number of databases.
-	 *
-	 * @return number of databases
-	 */
-	public int getDbCount() {
-		return currentDbIndex + 1;
-	}
+    /**
+     * Number of databases.
+     *
+     * @return number of databases
+     */
+    public int getDbCount() {
+        return currentDbIndex + 1;
+    }
 
-	/**
-	 * Total size of files.
-	 *
-	 * @return files size in bytes
-	 */
-	public long getSize() {
-		return size;
-	}
+    /**
+     * Total size of files.
+     *
+     * @return files size in bytes
+     */
+    public long getSize() {
+        return size;
+    }
 
-	/**
-	 * Number of files.
-	 *
-	 * @return number of files
-	 */
-	public long getFileCount() {
-		return fileCount;
-	}
+    /**
+     * Number of files.
+     *
+     * @return number of files
+     */
+    public long getFileCount() {
+        return fileCount;
+    }
 
-	public Set<String> getSkippedFiles() {
-		return skippedFiles;
-	}
+    public Set<String> getSkippedFiles() {
+        return skippedFiles;
+    }
 
-	@Override
-	public void release() {
-		// nothing to do
-	}
+    @Override
+    public void release() {
+        // nothing to do
+    }
 }
