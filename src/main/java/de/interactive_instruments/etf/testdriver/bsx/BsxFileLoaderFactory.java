@@ -1,6 +1,5 @@
 /**
- * Copyright 2017-2020 European Union, interactive instruments GmbH
- *
+ * Copyright 2017-2019 European Union, interactive instruments GmbH
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by
  * the European Commission - subsequent versions of the EUPL (the "Licence");
  * You may not use this work except in compliance with the Licence.
@@ -47,8 +46,7 @@ import de.interactive_instruments.properties.ConfigProperties;
 import de.interactive_instruments.properties.ConfigPropertyHolder;
 
 /**
- * Used to propagate: - Test Object Types (static), - Test Item Types (static), - Component Info (static), - Executable
- * Test Suites (dynamically reloaded on change), - Translation Template Bundles (dynamically reloaded on change)
+ * Used to propagate: - Test Object Types (static), - Test Item Types (static), - Component Info (static), - Executable Test Suites (dynamically reloaded on change), - Translation Template Bundles (dynamically reloaded on change)
  *
  * The Component Info is propagated by the Test Driver
  *

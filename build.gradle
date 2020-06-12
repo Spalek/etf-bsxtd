@@ -136,6 +136,7 @@ jar.doFirst {
 }
 
 jar {
+	archiveName = "etf-bsxtd-deprecated.jar"
 	into('lib') {
 		from allLibs
 	}

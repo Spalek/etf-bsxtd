@@ -1,6 +1,5 @@
 /**
- * Copyright 2017-2020 European Union, interactive instruments GmbH
- *
+ * Copyright 2017-2019 European Union, interactive instruments GmbH
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by
  * the European Commission - subsequent versions of the EUPL (the "Licence");
  * You may not use this work except in compliance with the Licence.
@@ -49,8 +48,8 @@ class BsxFileLoader extends AbstractItemFileLoader<ExecutableTestSuiteDto> {
     private final static Logger logger = LoggerFactory.getLogger(BsxFileLoader.class);
 
     BsxFileLoader(final ItemFileLoaderResultListener<ExecutableTestSuiteDto> loaderResultListener,
-                  final Path path,
-                  final Dao<ExecutableTestSuiteDto> writeDao) {
+            final Path path,
+            final Dao<ExecutableTestSuiteDto> writeDao) {
         super(loaderResultListener, 400, path.toFile());
         this.writeDao = (StreamWriteDao<ExecutableTestSuiteDto>) writeDao;
     }

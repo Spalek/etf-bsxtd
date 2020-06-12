@@ -237,7 +237,7 @@ class BasexTestTask extends AbstractTestTask {
             // Todo: use preparation task and update the DTO in the higher layer
             testObjectDao.replace(testObject);
             // FIXME
-            //final TestRunDto testRunDto = ((TestRunDto) testTaskDto.getParent());
+            // final TestRunDto testRunDto = ((TestRunDto) testTaskDto.getParent());
             testObjectDao.replace(testObject);
             for (final TestTaskDto taskDto : testRunDto.getTestTasks()) {
                 if (taskDto.getTestObject().getId().equals(testObject.getId())) {
